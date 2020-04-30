@@ -1,0 +1,7 @@
+@import '~@ffdc/uxg-angular-theme/_all-theme';
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}

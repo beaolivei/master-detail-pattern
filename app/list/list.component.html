@@ -1,0 +1,87 @@
+<div class='uxg-flex-layout'>
+	<mat-list class="uxg-nav-list">
+		<mat-list-item *ngFor="let data of datas">
+			<a mat-list-item (click)='onSelect(data)'>
+				<mat-icon mat-list-icon>{{data.icon}}</mat-icon>
+				<div mat-line>
+					<div class="uxg-flex-layout">
+						<p class="uxg-body-3">
+							{{data.category}}
+						</p>
+						<p class="uxg-body-3">
+							{{data.date | date}}
+						</p>
+					</div>
+				</div>
+
+				<div mat-line>
+					<p class="uxg-subtitle-1">
+						{{data.name}}
+					</p>
+				</div>
+				<div mat-line>
+					<p class="uxg-subtitle-2">
+						{{data.amount}}
+					</p>
+				</div>
+			</a>
+		</mat-list-item>
+	</mat-list>
+	<div class="uxg-initial-page-layout" *ngIf='!selectedField'>
+    <div>
+			<h5 class="uxg-h5">AWESOME CREDIT CARD</h5>
+      <mat-icon class="uxg-icon-initial-page" color="primary">mouse</mat-icon>
+			<h5 class="uxg-display-6">Click on the list's items to display more details</h5>
+    </div>
+	</div>
+
+	<div class='uxg-initial-page-layout' *ngIf="selectedField">
+		<mat-card>
+			<mat-card-title>
+				<div>{{ selectedField.name }}</div>
+			</mat-card-title>
+			<mat-card-content>
+				<div class="account-card-detail-summary">
+					<mat-icon  color="primary">{{selectedField.icon}}</mat-icon>
+					<div class="account-card-detail-summary-info">
+						<div class="uxg-body-1">Amount Spent</div>
+						<div class="uxg-subtitle-1">{{selectedField.amount}}</div>
+					</div>
+				</div>
+				<div class="account-detail-card-content">
+					<div class="account-detail-card-content__static">
+						<div class="account-detail-card-content__line">
+							<div class="uxg-subtitle-2 account-detail-card-content__line-title">
+								Card number:
+							</div>
+							<div>
+								{{selectedField.card}}
+							</div>
+						</div>
+
+						<div class="account-detail-card-content__line">
+							<div class="uxg-subtitle-2 account-detail-card-content__line-title">
+								Expense Category
+							</div>
+							<div>
+								{{ selectedField.category }}
+							</div>
+						</div>
+
+					</div>
+					<mat-divider [vertical]="true"></mat-divider>
+					<div class="account-detail-card-content__status">
+						<div class="account-detail-card-content__line">
+							<div class="uxg-subtitle-2 account-detail-card-content__line-title">Purchase Date</div>
+							<div>{{ selectedField.date | date}}</div>
+						</div>
+						<div class="account-detail-card-content__line">
+							<div class="uxg-subtitle-2 account-detail-card-content__line-title"> Location</div>
+							<div>{{ selectedField.location }}</div>
+						</div>
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
